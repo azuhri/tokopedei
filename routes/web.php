@@ -21,6 +21,7 @@ Route::get("/",function() {
     return redirect()->route("catalog.view");
 });
 Route::get("/login", [AuthController::class , "loginView"])->name("login");
+Route::post("/login", [AuthController::class,"loginPost"])->name("login.post");
 
 Route::prefix("app")->group(function() {
 
