@@ -9,7 +9,7 @@
     <div class="h-full">
         <div class="flex items-center mb-4">
             <div class="w-1/2">
-                <p class="font-bold mb-1 text-sm">User1</p>
+                <p class="font-bold mb-1 text-sm">{{Auth::user()->name}} | {{Auth::user()->email}}</p>
                 <p class="text-xs text-center px-2 py-1 w-[70px] bg-red-500 rounded text-white font-bold">
                     Seller
                 </p>

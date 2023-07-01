@@ -55,6 +55,7 @@ Route::prefix("app")->group(function() {
     
                 Route::prefix("profile")->group(function() {
                     Route::get("/", "profileView")->name("seller.profile.view");
+                    Route::post("/", "profileUpdate")->name("seller.profile.update");
                 });
            });
        });
