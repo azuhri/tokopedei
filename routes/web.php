@@ -38,6 +38,7 @@ Route::prefix("app")->group(function() {
        });
    });
    Route::middleware("auth")->group(function() {
+       Route::post("logout", [AuthController::class,"logout"])->name("logout");
        Route::controller(SellerController::class)->group(function() {
            Route::prefix("seller")->group(function() {
                 Route::get("home", "homeView")->name("seller.home");

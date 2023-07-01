@@ -18,10 +18,21 @@
             </div>
             <button class="bg-blue-500 w-full text-white py-2 rounded">Simpan</button>
         </form>
-        <button class="bg-red-500 w-full text-white py-2 rounded my-2">Logout</button>
+        <button onclick="logoutUser();" class="bg-red-500 w-full text-white py-2 rounded my-2">Logout</button>
+        <form class="hidden" action="{{route('logout')}}" method="POST" id="logoutForm">
+            @csrf
+        </form>
     </div>
 @endsection
 
 @section('dashboard_js')
-
+<script>
+    const logoutUser = () => {
+        let confirmation = confirm("Apakah Anda mau logout?");
+        if(confirmation) {
+            let form = document.getElementById("logoutForm");
+            form.submit();
+        }
+    }
+</script>
 @endsection

@@ -27,4 +27,9 @@ class AuthController extends Controller
         $auth = Auth::loginUsingId($findUser->id);
         return \redirect()->intended("app/seller/home");
     }
+
+    function logout() {
+        \session()->flush();
+        return \redirect()->route("login");
+    }
 }
