@@ -13,4 +13,8 @@ class CustomerController extends Controller
     function catalogDetailView() {
         return view("app.dashboard.customer.detail-catalog");
     }
+
+    function cartItemsView() {
+        return view("app.dashboard.customer.cart-items");
+    }
 }

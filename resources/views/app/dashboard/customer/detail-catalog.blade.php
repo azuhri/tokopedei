@@ -28,7 +28,25 @@
             </button>
         </div>
         <div>
-            <p class="font-bold my-1">Baju Kemeja</p>
+            <div class="flex">
+                <p class="font-bold w-1/2 my-1">Baju Kemeja</p>
+                <div class="w-1/2 flex justify-end items-center">
+                    <div class="w-full flex justify-end">
+                        <p class="text-xs px-2 flex items-center text-green-600 font-bold">
+                            Stok: 10
+                        </p>
+                        <img onclick="less();" src="https://app.bakoelomah.com/icon/kurang-circle.svg"
+                            class="cursor-pointer" alt="gambar">
+                        <div class="h6 fw-bold px-3 m-0" id="text_stok" data="1">
+                            1
+                        </div>
+                        <img onclick="add();" src="https://app.bakoelomah.com/icon/add-circle.svg" class="cursor-pointer"
+                            alt="gambar">
+                    </div>
+                </div>
+                <input type="hidden" name="stok" id="stok" value="1">
+                <input type="hidden" name="product_id" id="product_id">
+            </div>
             <p class="text-green-500">Rp. 55.000</p>
             <p class="font-bold my-1">Deskripsi Produk</p>
             <p class="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci asperiores, minima sit nisi consectetur delectus quaerat eius, exercitationem ducimus voluptates id magnam doloremque vitae iste voluptatum sunt distinctio labore velit.</p>
@@ -38,5 +56,30 @@
 @endsection
 
 @section('dashboard_js')
+<script>
+    let stok = 10;
+    const add = () => {
+        let qty = $("#stok").val();
+        qty = parseInt(qty);
+        if(qty == stok){
+            qty = stok;
+        } else {
+            qty++;
+        }
+        $("#stok").val(qty);
+        $("#text_stok").html(qty);
+    }
 
+    const less = () => {
+        let qty = $("#stok").val();
+        qty = parseInt(qty);
+        if(qty == 1){
+            qty = 1;
+        } else {
+            qty--;
+        }
+        $("#stok").val(qty);
+        $("#text_stok").html(qty);
+    }
+</script>
 @endsection

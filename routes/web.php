@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/",function() {
-    return redirect()->route("login");
+    return redirect()->route("catalog.view");
 });
 Route::get("/login", [AuthController::class , "loginView"])->name("login");
 
@@ -30,6 +30,10 @@ Route::prefix("app")->group(function() {
                 Route::get("/", "catalogView")->name("catalog.view");
                 Route::get("{productId}", "catalogDetailView")->name("catalog.view.detail");
             }); 
+
+            Route::prefix("cart-items")->group(function() {
+                Route::get("/", "cartItemsView")->name("cart.items");
+            });
        });
    });
    Route::controller(SellerController::class)->group(function() {

@@ -16,14 +16,6 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                "name" => "Customer",
-                "user_type_role" => 0,
-                "email" => "customer@gmail.com",
-                "password" => \bcrypt("adminadmin"),
-                "created_at" => Carbon::now(),
-                "updated_at" => Carbon::now(),
-            ],
-            [
                 "name" => "Seller",
                 "user_type_role" => 1,
                 "email" => "seller@gmail.com",

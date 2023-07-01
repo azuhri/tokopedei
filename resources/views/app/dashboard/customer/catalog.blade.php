@@ -5,7 +5,6 @@
 @section('dashboard_css')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
 @endsection
-
 @section('dashboard_content')
     <div class="h-full">
         <div class="my-2">
