@@ -37,23 +37,25 @@ Route::prefix("app")->group(function() {
             });
        });
    });
-   Route::controller(SellerController::class)->group(function() {
-       Route::prefix("seller")->group(function() {
-            Route::get("home", "homeView")->name("seller.home");
-            Route::prefix("product")->group(function() {
-                Route::get("/","productList")->name("seller.product");
-                Route::get("/create","createProductView")->name("seller.product.create");
-                Route::get("/detail/{productId}","detailProductView")->name("seller.product.detail");
-            });
-
-            Route::prefix("order")->group(function() {
-                Route::get("/", "orderView")->name("seller.order");
-                Route::get("{orderId}", "orderDetailView")->name("seller.order.detail");
-            });
-
-            Route::prefix("profile")->group(function() {
-                Route::get("/", "profileView")->name("seller.profile.view");
-            });
+   Route::middleware("auth")->group(function() {
+       Route::controller(SellerController::class)->group(function() {
+           Route::prefix("seller")->group(function() {
+                Route::get("home", "homeView")->name("seller.home");
+                Route::prefix("product")->group(function() {
+                    Route::get("/","productList")->name("seller.product");
+                    Route::get("/create","createProductView")->name("seller.product.create");
+                    Route::get("/detail/{productId}","detailProductView")->name("seller.product.detail");
+                });
+    
+                Route::prefix("order")->group(function() {
+                    Route::get("/", "orderView")->name("seller.order");
+                    Route::get("{orderId}", "orderDetailView")->name("seller.order.detail");
+                });
+    
+                Route::prefix("profile")->group(function() {
+                    Route::get("/", "profileView")->name("seller.profile.view");
+                });
+           });
        });
    });
 });
